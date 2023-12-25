@@ -143,3 +143,7 @@ a {
   border-color: gray;
   user-select: none;
 }
+
+img[src="#"] {
+  display: none;
+}

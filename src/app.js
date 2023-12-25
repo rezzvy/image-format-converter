@@ -26,6 +26,10 @@ class View {
     this.dropFileElement = document.querySelector(".input-file-area");
   }
 
+  resetOutput() {
+    this.outputImageElement.src = "#";
+  }
+
   showOutput(source) {
     this.outputImageElement.src = source;
   }
@@ -95,18 +99,18 @@ class Controller {
   }
 
   __inputFileHandler(e) {
-    const imgFileName = e.target.files[0].name.split(".");
-    this.model.img.selected = e.target.files[0];
-    this.model.img.name = imgFileName[0];
-    this.model.img.format = imgFileName[imgFileName.length - 1];
+    if (e.target.files[0]) {
+      const imgFileName = e.target.files[0].name.split(".");
+      this.model.img.selected = e.target.files[0];
+      this.model.img.name = imgFileName[0];
+      this.model.img.format = imgFileName[imgFileName.length - 1];
 
-    this.view.enableConvertButton(true);
+      this.view.enableConvertButton(true);
+    }
   }
 
   __convertHandler() {
-    if (this.model.img.blob.url !== "") {
-      URL.revokeObjectURL(this.model.img.blob.url);
-    }
+    this.destroyCreatedBlob();
 
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
@@ -128,7 +132,7 @@ class Controller {
       if (this.model.selectedFormat === ".png") outputURL = canvas.toDataURL("image/png");
       if (this.model.selectedFormat === ".bmp") outputURL = canvas.toDataURL("image/bmp");
 
-      this.view.setDownloadButton(outputURL, this.model.img.name, this.model.img.format);
+      this.view.setDownloadButton(outputURL, this.model.img.name, this.model.selectedFormat);
 
       this.view.enableDownloadButton(true);
     };
@@ -136,6 +140,16 @@ class Controller {
 
   __formatSelectHandler(e) {
     this.model.selectedFormat = e.currentTarget.value;
+    this.view.enableDownloadButton(false);
+
+    this.view.resetOutput();
+    this.destroyCreatedBlob();
+  }
+
+  destroyCreatedBlob() {
+    if (this.model.img.blob.url !== "") {
+      URL.revokeObjectURL(this.model.img.blob.url);
+    }
   }
 }
 
