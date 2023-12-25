@@ -23,7 +23,7 @@ class View {
     this.fileDialogElement = document.getElementById("file-dialog");
     this.imageFormatSelectElement = document.getElementById("image-format-option");
     this.convertButtonElement = document.getElementById("convert-btn");
-
+    this.fileNameInformationElement = document.querySelector(".file-selected-information");
     this.errorNotification = document.querySelector(".error");
 
     this.dropFileElement = document.querySelector(".input-file-area");
@@ -52,6 +52,16 @@ class View {
     setTimeout(() => {
       this.errorNotification.classList.add("none");
     }, 2000);
+  }
+
+  showSelectedFileName(fileName, boolean) {
+    if (boolean) {
+      this.fileNameInformationElement.classList.remove("none");
+    } else {
+      this.fileNameInformationElement.classList.add("none");
+    }
+
+    this.fileNameInformationElement.textContent = "File name: " + fileName;
   }
 
   enableConvertButton(boolean) {
@@ -110,7 +120,7 @@ class Controller {
       this.model.img.selected = e.dataTransfer.files[0];
       this.model.img.name = imgFileName[0];
       this.model.img.format = imgFileName[imgFileName.length - 1];
-
+      this.view.showSelectedFileName(e.dataTransfer.files[0].name, true);
       this.view.enableConvertButton(true);
     });
   }
@@ -122,6 +132,7 @@ class Controller {
       this.model.img.name = imgFileName[0];
       this.model.img.format = imgFileName[imgFileName.length - 1];
 
+      this.view.showSelectedFileName(e.target.files[0].name, true);
       this.view.enableConvertButton(true);
     }
   }

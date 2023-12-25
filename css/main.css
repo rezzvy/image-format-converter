@@ -22,11 +22,17 @@ main #input-section .input-file-area {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.05);
   border: 4px dashed rgba(0, 0, 0, 0.1);
-  text-align: center;
 }
 
 main #input-section .input-file-area input {
   display: none;
+}
+
+main #input-section .selected-file-info {
+  background-color: rgb(31, 99, 235);
+  color: white;
+  text-align: center;
+  margin-top: 5px;
 }
 
 main #output-format-option {
