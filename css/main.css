@@ -16,8 +16,10 @@ footer > .container {
 }
 
 main #input-section .input-file-area {
+  display: flex;
+  flex-direction: column;
   padding: 30px;
-  text-align: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.05);
   border: 4px dashed rgba(0, 0, 0, 0.1);
 }

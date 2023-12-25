@@ -127,3 +127,11 @@ a {
 .color-blue {
   color: rgb(31, 99, 235);
 }
+
+.drop {
+  border-color: green !important;
+}
+
+.no-event {
+  pointer-events: none !important;
+}

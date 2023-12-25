@@ -22,6 +22,8 @@ class View {
     this.fileDialogElement = document.getElementById("file-dialog");
     this.imageFormatSelectElement = document.getElementById("image-format-option");
     this.convertButtonElement = document.getElementById("convert-btn");
+
+    this.dropFileElement = document.querySelector(".input-file-area");
   }
 
   showOutput(source) {
@@ -31,6 +33,10 @@ class View {
   setDownloadButton(source, name, format) {
     this.downloadButtonElement.href = source;
     this.downloadButtonElement.download = name + format;
+  }
+
+  highlightDrop(boolean) {
+    boolean ? this.dropFileElement.classList.add("drop") : this.dropFileElement.classList.remove("drop");
   }
 }
 
@@ -51,6 +57,30 @@ class Controller {
 
     this.view.imageFormatSelectElement.addEventListener("change", (e) => {
       this.__formatSelectHandler(e);
+    });
+
+    this.view.dropFileElement.addEventListener("dragenter", (e) => {
+      e.preventDefault();
+      this.view.highlightDrop(true);
+    });
+
+    this.view.dropFileElement.addEventListener("dragleave", (e) => {
+      e.preventDefault();
+      this.view.highlightDrop(false);
+    });
+
+    this.view.dropFileElement.addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
+
+    this.view.dropFileElement.addEventListener("drop", (e) => {
+      e.preventDefault();
+      this.view.highlightDrop(false);
+
+      const imgFileName = e.dataTransfer.files[0].name.split(".");
+      this.model.img.selected = e.dataTransfer.files[0];
+      this.model.img.name = imgFileName[0];
+      this.model.img.format = imgFileName[imgFileName.length - 1];
     });
   }
 
