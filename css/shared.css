@@ -147,3 +147,15 @@ a {
 img[src="#"] {
   display: none;
 }
+
+.error {
+  font-weight: 700;
+  background-color: rgb(255, 97, 97);
+  color: white;
+  padding: 15px 30px;
+  margin-bottom: 30px;
+}
+
+.none {
+  display: none;
+}

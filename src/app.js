@@ -11,6 +11,7 @@ class Model {
       },
     };
 
+    this.supportedFormat = ["jpg", "jpeg", "png", "webp", "bmp"];
     this.selectedFormat = "";
   }
 }
@@ -22,6 +23,8 @@ class View {
     this.fileDialogElement = document.getElementById("file-dialog");
     this.imageFormatSelectElement = document.getElementById("image-format-option");
     this.convertButtonElement = document.getElementById("convert-btn");
+
+    this.errorNotification = document.querySelector(".error");
 
     this.dropFileElement = document.querySelector(".input-file-area");
   }
@@ -41,6 +44,14 @@ class View {
 
   highlightDrop(boolean) {
     boolean ? this.dropFileElement.classList.add("drop") : this.dropFileElement.classList.remove("drop");
+  }
+
+  showFileNotSupportedError() {
+    this.errorNotification.classList.remove("none");
+
+    setTimeout(() => {
+      this.errorNotification.classList.add("none");
+    }, 2000);
   }
 
   enableConvertButton(boolean) {
@@ -90,6 +101,12 @@ class Controller {
       this.view.highlightDrop(false);
 
       const imgFileName = e.dataTransfer.files[0].name.split(".");
+
+      if (!this.model.supportedFormat.includes(imgFileName[imgFileName.length - 1])) {
+        this.view.showFileNotSupportedError();
+        return console.error("Format is not supported!");
+      }
+
       this.model.img.selected = e.dataTransfer.files[0];
       this.model.img.name = imgFileName[0];
       this.model.img.format = imgFileName[imgFileName.length - 1];
