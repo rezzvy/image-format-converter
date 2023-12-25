@@ -47,12 +47,12 @@ h2 {
   display: inline-block;
   padding: 12px 22px;
   font-weight: 700;
-
+  border: 1px solid transparent;
   cursor: pointer;
 }
 
 .btn-outline-blue {
-  border: 1px solid rgb(31, 99, 235);
+  border-color: rgb(31, 99, 235);
   color: rgb(31, 99, 235);
 }
 
@@ -134,4 +134,12 @@ a {
 
 .no-event {
   pointer-events: none !important;
+}
+
+.disable {
+  pointer-events: none;
+  color: gray;
+  background-color: white;
+  border-color: gray;
+  user-select: none;
 }

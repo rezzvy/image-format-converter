@@ -38,6 +38,14 @@ class View {
   highlightDrop(boolean) {
     boolean ? this.dropFileElement.classList.add("drop") : this.dropFileElement.classList.remove("drop");
   }
+
+  enableConvertButton(boolean) {
+    boolean ? this.convertButtonElement.classList.remove("disable") : this.convertButtonElement.classList.add("disable");
+  }
+
+  enableDownloadButton(boolean) {
+    boolean ? this.downloadButtonElement.classList.remove("disable") : this.downloadButtonElement.classList.add("disable");
+  }
 }
 
 class Controller {
@@ -81,6 +89,8 @@ class Controller {
       this.model.img.selected = e.dataTransfer.files[0];
       this.model.img.name = imgFileName[0];
       this.model.img.format = imgFileName[imgFileName.length - 1];
+
+      this.view.enableConvertButton(true);
     });
   }
 
@@ -89,6 +99,8 @@ class Controller {
     this.model.img.selected = e.target.files[0];
     this.model.img.name = imgFileName[0];
     this.model.img.format = imgFileName[imgFileName.length - 1];
+
+    this.view.enableConvertButton(true);
   }
 
   __convertHandler() {
@@ -117,6 +129,8 @@ class Controller {
       if (this.model.selectedFormat === ".bmp") outputURL = canvas.toDataURL("image/bmp");
 
       this.view.setDownloadButton(outputURL, this.model.img.name, this.model.img.format);
+
+      this.view.enableDownloadButton(true);
     };
   }
 
