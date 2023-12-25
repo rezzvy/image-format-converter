@@ -1,0 +1,49 @@
+@media screen and (max-width: 1180px) {
+  .step-header::before {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body,
+  .text,
+  p {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  header,
+  footer {
+    text-align: center;
+  }
+
+  body {
+    padding: 0 0;
+  }
+
+  main #output-section .output-img {
+    height: 150px;
+  }
+
+  main > .container,
+  header > .container,
+  footer > .container {
+    padding: 15px;
+  }
+
+  main #output-format-option {
+    margin: 15px 0;
+  }
+
+  main #output-format-option .image-formats,
+  main #input-section .input-file-area {
+    padding: 15px;
+  }
+}

@@ -22,6 +22,7 @@ main #input-section .input-file-area {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.05);
   border: 4px dashed rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 main #input-section .input-file-area input {
@@ -34,6 +35,7 @@ main #output-format-option {
 
 main #output-format-option .image-formats {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 30px;
