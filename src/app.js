@@ -12,7 +12,7 @@ class Model {
     };
 
     this.supportedFormat = ["jpg", "jpeg", "png", "webp", "bmp"];
-    this.selectedFormat = "";
+    this.selectedFormat = ".webp";
   }
 }
 
@@ -155,6 +155,7 @@ class Controller {
       ctx.drawImage(img, 0, 0);
 
       let outputURL;
+
       if (this.model.selectedFormat === ".webp") outputURL = canvas.toDataURL("image/webp");
       if (this.model.selectedFormat === ".jpg") outputURL = canvas.toDataURL("image/jpeg");
       if (this.model.selectedFormat === ".png") outputURL = canvas.toDataURL("image/png");
