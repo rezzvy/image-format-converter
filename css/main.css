@@ -50,7 +50,8 @@ main #output-format-option .image-formats select {
 }
 
 main #output-section .output-img {
-  min-height: 400px;
+  height: 400px;
+  max-height: 400px;
   padding: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }

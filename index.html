@@ -42,14 +42,14 @@
           </div>
 
           <div class="image-formats">
-            <select>
-              <option value="">WebP</option>
-              <option value="">JPG</option>
-              <option value="">PNG</option>
-              <option value="">BMP</option>
+            <select id="image-format-option">
+              <option value=".webp">WebP</option>
+              <option value=".jpg">JPG</option>
+              <option value=".png">PNG</option>
+              <option value=".bmp">BMP</option>
             </select>
 
-            <a href="#" class="btn btn-outline-blue">Convert now!</a>
+            <a href="javascript:void(0)" class="btn btn-outline-blue" id="convert-btn">Convert now!</a>
           </div>
         </section>
 
@@ -62,12 +62,14 @@
             <img src="#" alt="Output image" />
           </div>
 
-          <a href="#" class="btn btn-full btn-blue separator-top">Download</a>
+          <a href="#" class="btn btn-full btn-blue separator-top" id="output-download-btn">Download</a>
         </section>
       </div>
     </main>
     <footer>
       <div class="container"><a href="#">Image Format Converter</a> - Made with lots of ❤️ by <a href="#">Muhd. Reza Fahlevi</a></div>
     </footer>
+
+    <script src="./src/app.js"></script>
   </body>
 </html>
