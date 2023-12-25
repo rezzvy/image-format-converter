@@ -11,7 +11,7 @@ class Model {
       },
     };
 
-    this.supportedFormat = ["jpg", "jpeg", "png", "webp", "bmp"];
+    this.supportedFormat = ["jpg", "jpeg", "png", "webp", "bmp", "svg", "gif"]; // for selected, not to convert
     this.selectedFormat = ".webp";
   }
 }
@@ -51,7 +51,7 @@ class View {
 
     setTimeout(() => {
       this.errorNotification.classList.add("none");
-    }, 2000);
+    }, 10000);
   }
 
   showSelectedFileName(fileName, boolean) {
@@ -112,9 +112,8 @@ class Controller {
 
       const imgFileName = e.dataTransfer.files[0].name.split(".");
 
-      if (!this.model.supportedFormat.includes(imgFileName[imgFileName.length - 1])) {
-        this.view.showFileNotSupportedError();
-        return console.error("Format is not supported!");
+      if (!this.checkSupport(imgFileName[imgFileName.length - 1])) {
+        return;
       }
 
       this.model.img.selected = e.dataTransfer.files[0];
@@ -125,9 +124,22 @@ class Controller {
     });
   }
 
+  checkSupport(format) {
+    if (!this.model.supportedFormat.includes(format)) {
+      this.view.showFileNotSupportedError();
+      return false;
+    }
+
+    return true;
+  }
+
   __inputFileHandler(e) {
     if (e.target.files[0]) {
       const imgFileName = e.target.files[0].name.split(".");
+      if (!this.checkSupport(imgFileName[imgFileName.length - 1])) {
+        return;
+      }
+
       this.model.img.selected = e.target.files[0];
       this.model.img.name = imgFileName[0];
       this.model.img.format = imgFileName[imgFileName.length - 1];
