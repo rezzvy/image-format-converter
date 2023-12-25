@@ -1,0 +1,129 @@
+@font-face {
+  font-display: swap;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/open-sans-v40-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/open-sans-v40-latin-700.woff2") format("woff2");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  color: rgb(34, 34, 34);
+  background: radial-gradient(circle, transparent 25%, #ffffff 26%), linear-gradient(45deg, transparent 46%, #f1f1f1 47%, #f1f1f1 52%, transparent 53%), linear-gradient(135deg, transparent 46%, #f1f1f1 47%, #f1f1f1 52%, transparent 53%);
+  background-size: 3em 3em;
+  background-color: #ffffff;
+  background-position: center;
+}
+
+body,
+.text,
+p {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.btn-outline-blue {
+  border: 1px solid rgb(31, 99, 235);
+  color: rgb(31, 99, 235);
+}
+
+.btn-outline-blue:hover {
+  color: white;
+  background-color: rgb(31, 99, 235);
+}
+
+.btn-full {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-blue {
+  background-color: rgb(31, 99, 235);
+  color: white;
+}
+
+.btn-blue:hover {
+  background-color: rgb(24, 76, 181);
+}
+
+.text-separator {
+  margin: 8px 0;
+}
+
+.separator-top {
+  margin-top: 15px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+select {
+  padding: 12px;
+}
+
+.step-header {
+  position: relative;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.step-header::before {
+  content: attr(num);
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  font-size: 18px;
+  font-weight: 700;
+  top: -40px;
+  left: -100px;
+  font-size: 80px;
+  color: rgb(211, 211, 211);
+}
+
+.step-header::before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 700;
+  color: inherit;
+}
+
+.color-blue {
+  color: rgb(31, 99, 235);
+}

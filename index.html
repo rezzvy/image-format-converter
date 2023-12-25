@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Format Converter - Convert your image format to the new one you want.</title>
+
+    <link rel="stylesheet" href="./css/shared.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="color-blue">Image Format Converter</h1>
+        <p class="">Web-based app to convert your image format to the new one you want.</p>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <section id="input-section">
+          <div class="step-header" num="1">
+            <h2>Select your image</h2>
+          </div>
+
+          <div class="input-file-area">
+            <div class="input-method">
+              <label for="file-dialog" class="btn btn-blue">Browse</label>
+              <input type="file" id="file-dialog" accept=".webp, .jpg, .jpeg, .png, .bmp" />
+            </div>
+
+            <div class="text-separator">OR</div>
+
+            <div class="input-method">
+              <div class="text">Drag & drop your image here</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="output-format-option">
+          <div class="step-header" num="2">
+            <h2>New format for selected image</h2>
+          </div>
+
+          <div class="image-formats">
+            <select>
+              <option value="">WebP</option>
+              <option value="">JPG</option>
+              <option value="">PNG</option>
+              <option value="">BMP</option>
+            </select>
+
+            <a href="#" class="btn btn-outline-blue">Convert now!</a>
+          </div>
+        </section>
+
+        <section id="output-section">
+          <div class="step-header" num="3">
+            <h2>You're ready to go!</h2>
+          </div>
+
+          <div class="output-img">
+            <img src="#" alt="Output image" />
+          </div>
+
+          <a href="#" class="btn btn-full btn-blue separator-top">Download</a>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="container"><a href="#">Image Format Converter</a> - Made with lots of ❤️ by <a href="#">Muhd. Reza Fahlevi</a></div>
+    </footer>
+  </body>
+</html>
