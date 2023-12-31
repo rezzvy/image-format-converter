@@ -1,18 +1,17 @@
 # Image-Format-Converter
 
- Web-based app to convert your image format to the new one you want.
+Web-based app to convert your image format to the new one you want.
 
- ![Preview](https://repository-images.githubusercontent.com/735607474/b52cc115-2ef0-4ff9-8652-7b6fefeec543)
+![Preview](https://repository-images.githubusercontent.com/735607474/6e5f2848-fc16-4057-98c1-d694b89dd77d)
 
- ## Supported formats
+## Supported formats
 
-| Format | Compatible |
-|--------|-------------|
+| Format | Compatible          |
+| ------ | ------------------- |
 | JPG    | All Modern Browsers |
 | PNG    | All Modern Browsers |
 | WEBP   | All Modern Browsers |
-| BMP    | Unknown |
-
+| BMP    | Unknown             |
 
 ## Installation Steps
 
@@ -22,7 +21,6 @@
 - Run `index.html` file.
 
 Alternatively, you can play using our provided demo by clicking [this link](https://rezzvy.github.io/image-format-converter/).
-
 
 ## How to Use
 
@@ -37,4 +35,3 @@ Alternatively, you can play using our provided demo by clicking [this link](http
 ## License
 
 This project is licensed under [MIT License](https://github.com/rezzvy/image-format-converter/blob/master/LICENSE).
-
